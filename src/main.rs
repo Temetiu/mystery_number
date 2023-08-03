@@ -21,7 +21,14 @@ fn main() {
         // player_number is a string type
         // we need to convert it to unsigned 32-bit number type
         // trim() nethod used to remove whitespaces at the beginning and end of player_number, but also \n for new line
-        let player_number: u32 = player_number.trim().parse().expect("Please enter a number");
+        
+        
+        //let player_number: u32 = player_number.trim().parse().expect("Please enter a number");
+
+        let player_number: u32 = match player_number.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
 
         println!("You entered {}", player_number);
 
