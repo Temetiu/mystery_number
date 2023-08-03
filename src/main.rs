@@ -1,9 +1,9 @@
 use std::io;
+use rand::Rng;
 
 fn main() {
-    let mut player_number = String::new(); // mut to set the variable 'player_number' mutable (immutable by default)
-    let x = 5;
-    let y = 10;
+    // Generate a random number in [1;100]
+    let secret_number = rand::thread_rng().gen_range(1..=100);
 
     println!("Hello World!");
     println!("Mystery number game");
@@ -11,15 +11,14 @@ fn main() {
     println!();
 
     println!("Enter a number: ");
-    
+    let mut player_number = String::new(); // mut to set the variable 'player_number' mutable (immutable by default)
+
     io::stdin()
         .read_line(&mut player_number)
         .expect("Failed to read number");
-    
     println!("You entered {}", player_number);
 
-    println!("x = {}, y = {}", x, y);
-    println!("Then x + y = {} + {}", x, y);
-    println!("           = {}", x+y);
+    println!("The secret number was {} !", secret_number);
+    println!();
 }
 
